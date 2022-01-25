@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APROVD</title>
+    <style>
+      h1{
+        text-align:center;
+      }
+        body {
+          width: 800px;
+          height: 300px;
+        }
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-child {
+            flex: 4;
+        }  
+
+        .flex-child:first-child {
+            margin-right: 20px;
+        } 
+    </style>
+</head>
+<body>
+    <h1>APROVD</h1>
+    <div class="flex-container">
+
+      <div class="flex-child magenta" style="font-weight: bold;">
+        8 Characters
+      </div>
+      
+      <div class="flex-child green" style="font-weight: bold;">
+        Uppercase
+      </div>
+
+      <div class="flex-child yellow" style="font-weight: bold;">
+        Lowercase
+      </div>
+
+      <div class="flex-child red" style="font-weight: bold;">
+        Digits
+      </div>
+
+      <div class="flex-child white" style="font-weight: bold;">
+        Special Characters
+      </div>
+      
+    </div>
+
+</body>
+<script src="zxcvbn.js"></script>
+<script src="popup.js"></script>
+</html>
