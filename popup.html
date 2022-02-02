@@ -4,54 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APROVD</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>APV</title>
     <style>
-      h1{
-        text-align:center;
-      }
         body {
-          width: 800px;
-          height: 300px;
+            font-family: 'Roboto';
+            width: 500px;
+            margin:auto;
+            border-radius: 10px;
+            border-color: black;
+            border: 1px solid;
+            height: 500px;  
         }
-        .flex-container {
-            display: flex;
+        #container{
+            margin: auto;
+            margin-top: 40px;
+            border: 1px solid;
+            border-color: yellow;
+            background-color: gold;
+            text-align: center;
+            color: black;
+            width: 380px;
+            font-size: 10px;
         }
-
-        .flex-child {
-            flex: 4;
-        }  
-
-        .flex-child:first-child {
-            margin-right: 20px;
-        } 
+        #strength{
+            font-size: 18px;
+            width: 150px;
+            background-color: red;
+            color: white;
+            text-align: center;
+            margin: auto;
+        }
+        #requirements, #pass-1, #pass-2{
+            font-size: 16px;
+            margin-left: 60px;
+        }
     </style>
 </head>
 <body>
-    <h1>APROVD</h1>
-    <div class="flex-container">
-
-      <div class="flex-child magenta" style="font-weight: bold;">
-        8 Characters
-      </div>
-      
-      <div class="flex-child green" style="font-weight: bold;">
-        Uppercase
-      </div>
-
-      <div class="flex-child yellow" style="font-weight: bold;">
-        Lowercase
-      </div>
-
-      <div class="flex-child red" style="font-weight: bold;">
-        Digits
-      </div>
-
-      <div class="flex-child white" style="font-weight: bold;">
-        Special Characters
-      </div>
-      
+    <div id="container">
+        <h2>APV -  ACCESSIBLE PASSWORD VALIDATOR</h2>
     </div>
-
+    <br><br>
+    <div id="strength">
+        WEAK
+    </div>
+    <br>
+    <div id="brute-force-time">
+      <p id="pass-1"><b>Brute Force Password Crack Time:</b></p> <p id="pass-2">NO PASSWORD</p>
+    </div>
+    <br>
+    <div id="requirements"> 
+        <p><b>Password Requirements</b></p>
+        <p id="1">At least 8 Characters</p>
+        <p id="2">At least one Uppercase</p>
+        <p id="3">At least one Lowercase</p>
+        <p id="4">At least one Digit</p>
+        <p id="5">At least one special character</p>
+    </div>
 </body>
 <script src="zxcvbn.js"></script>
 <script src="popup.js"></script>

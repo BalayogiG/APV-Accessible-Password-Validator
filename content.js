@@ -15,6 +15,7 @@ function readPassword(item){
             let message = {
                 text: x
             };
+            //console.log(x);
             chrome.runtime.sendMessage(message);
         }
     }

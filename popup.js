@@ -2,26 +2,18 @@ console.log('popup running');
 
 let bgpage = chrome.extension.getBackgroundPage();
 
-console.log(bgpage.word);
+//console.log(bgpage.word);
 
-createComponents();
 if(bgpage.word != ''){
     checkStrength(bgpage.word);
     changeColors(bgpage.word);
 }
-
-function createComponents(){
-    var H1 = document.getElementsByTagName('H1')[0];
-    var rect = document.createElement('div');
-    var cracktime = document.createElement('p');
-    cracktime.setAttribute('class','cracktime');
-    cracktime.innerText = 'no password';
-    rect.setAttribute('class','rectangle');
-    rect.setAttribute('style','height:20px; width:200px; display: flex; justify-content: center; align-items:center; margin:auto; background-color:red;color:white;font-weight:bold;margin-top:20px;');
-    rect.innerText = "WEAK";
-    H1.after(rect);
-    var r = document.getElementsByTagName('div')[0];
-    r.after(cracktime);
+else{
+    var empty = new SpeechSynthesisUtterance();
+    empty.text = "No Password";
+    window.speechSynthesis.speak(empty);
+    var cr = document.getElementById('pass-2');
+    cr.innerText = "NO PASSWORD";
 }
 
 function checkUpperCase(password) {
@@ -74,54 +66,38 @@ function checkCharacterLimit(password) {
 }
 
 function changeColors(password){
-    var eight = document.getElementsByClassName('flex-child magenta')[0];
-    var uc = document.getElementsByClassName('flex-child green')[0];
-    var lc = document.getElementsByClassName('flex-child yellow')[0];
-    var digit = document.getElementsByClassName('flex-child red')[0];
-    var spcl = document.getElementsByClassName('flex-child white')[0];
-
+    var eight = document.getElementById('1');
+    var uc = document.getElementById('2');
+    var lc = document.getElementById('3');
+    var digit = document.getElementById('4');
+    var spcl = document.getElementById('5');
+    
     if(checkCharacterLimit(password) == true)
     {
-        eight.setAttribute('style','color: green; font-weight:bold;');
-        var eight_chars = new SpeechSynthesisUtterance();
-        eight_chars.text = "your password have eight character or more.";
-        window.speechSynthesis.speak(eight_chars);
+        eight.setAttribute('style','font-weight:bold;color:green;');
         if(checkUpperCase(password) == true){
-            uc.setAttribute('style','color: green; font-weight:bold;');
-            var uc_chars = new SpeechSynthesisUtterance();
-            uc_chars.text = "your password have eight characters and Uppercase characters.";
-            window.speechSynthesis.speak(uc_chars);
+            uc.setAttribute('style','font-weight:bold;color:green;');
         }
         if(checkLowerCase(password) == true){
-            lc.setAttribute('style','color: green; font-weight:bold;');
-            var lc_chars = new SpeechSynthesisUtterance();
-            lc_chars.text = "your password have Eight characters, Uppercase, and Lowercase characters.";
-            window.speechSynthesis.speak(lc_chars);
+            lc.setAttribute('style','font-weight:bold;color:green;');
         }
         if(checkNumeric(password) == true){
-            digit.setAttribute('style','color: green; font-weight:bold;');
-            var digits_chars = new SpeechSynthesisUtterance();
-            digits_chars.text = "your password have Eight characters, Uppercase, Lowercase, and Numerical characters.";
-            window.speechSynthesis.speak(digits_chars);
+            digit.setAttribute('style','font-weight:bold;color:green;');
         }
         if(checkSpecialCharacterCase(password) == true){
-            spcl.setAttribute('style','color: green; font-weight:bold;');
-            var spcl_chars = new SpeechSynthesisUtterance();
-            spcl_chars.text = "your password have Eight characters, Uppercase, Lowercase, Numerical, and Special characters.";
-            window.speechSynthesis.speak(spcl_chars);
+            spcl.setAttribute('style','font-weight:bold;color:green;');
         }
     }
     else{
-        console.log('password is under 8 char limit');
         var bad = new SpeechSynthesisUtterance();
-        bad.text = "your password does not have Eight characters.";
+        bad.text = "Need eight characters.";
         window.speechSynthesis.speak(bad);
     }
 }
 
 function checkStrength(password) {
-    var cr = document.getElementsByClassName('cracktime')[0];
-    var rect = document.getElementsByTagName('div')[0];
+    var cr = document.getElementById('pass-2');
+    var rect = document.getElementById('strength');
     var cr_time = checkCrackTime(password);
         if(checkCharacterLimit(password) == true && 
         checkLowerCase(password) == true &&
@@ -129,7 +105,7 @@ function checkStrength(password) {
         checkNumeric(password) == true &&
         checkSpecialCharacterCase(password) == true){
             console.log('strong password');
-            rect.setAttribute('style','height:20px; width:200px; margin:auto; background-color:green;color:white;font-weight:bold;margin-top:20px;');
+            rect.setAttribute('style','background-color:green;color:white;');
             rect.innerText = "STRONG";
             cr.innerText = cr_time;
             var strong = new SpeechSynthesisUtterance();
@@ -142,7 +118,7 @@ function checkStrength(password) {
         checkNumeric(password) == false &&
         checkSpecialCharacterCase(password) == true){
             console.log('medium password');
-            rect.setAttribute('style','height:20px; width:200px; margin:auto; background-color:blue;color:white;font-weight:bold;margin-top:20px;');
+            rect.setAttribute('style','background-color:blue;color:white;');
             rect.innerText = "MEDIUM";
             cr.innerText = cr_time;
             var medium = new SpeechSynthesisUtterance();
@@ -151,7 +127,7 @@ function checkStrength(password) {
         }
         else{
             console.log('weak password');
-            rect.setAttribute('style','height:20px; width:200px; margin:auto; background-color:red;color:white;font-weight:bold;margin-top:20px;');
+            rect.setAttribute('style','background-color:red;color:white;');
             rect.innerText = "WEAK";
             cr.innerText = cr_time;
             var weak = new SpeechSynthesisUtterance();
