@@ -1,2 +1,3 @@
 # APROVD
-Accessible Password Validator for People with Visual Disabilities.
+Accessible Password Validator for People with Visual impaired users.
+
