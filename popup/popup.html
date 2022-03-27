@@ -4,32 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Password Validator</title>
+    <title>APV</title>
     <link rel="stylesheet" href="popup.css">
-    <script src="rule.js"></script>
-    <script src="passwords.js"></script>
-    <script src="hashcatJS.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="js/passwords.js"></script>
+    <script src="js/hashcatJS.js"></script>
+    <script src="js/rule.js"></script>
 </head>
-<body style="background-color: yellow; color:black;width:550px; height:150px;">
-    <h1 style="text-align:center;">Accessible Password Validator</h1>
-    <div id="strength-meter">
-        <table>
-            <tr>
-                <td><b>Password Strength</b></td>
-                <td align="center"><span id="strength">Very weak</span></td>
-            </tr>
-            <tr>
-                <td><b>Score</b></td>
-                <td>
-                    <div id="progress-meter">
-                        <div id="progress-bar">
-                        </div>
+<body>
+    <h2>Accessible Password Validator</h2>
+    <table>
+        <tr>
+            <td><b>Password Strength </b></td>
+            <td><span id="strength"></span></td>
+        </tr>
+        <tr>
+            <td><b>Complexity </b></td>
+            <td>
+                <div id="progress-meter">
+                    <div id="progress-bar">
                     </div>
-                </td>
-            </tr>
-        </table>
-    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Feedback </b></td>
+            <td><span id="feedback"></span></td>
+        </tr>
+        <tr>
+            <td><b>Password Suggestion</b></td>
+            <td><span id="suggestion"></span></td>
+        </tr>
+    </table>
+
+    <h3><b>Rules for Password: </b></h3>
+    <table id="rules-for-password">
+        <tr>
+            <td>Password should contain at least <b>8 characters</b></td>
+        </tr>
+        <tr>
+            <td>Password should contain at least <b>one Uppercase characters</b></td>
+        </tr>
+        <tr>
+            <td>Password should contain at least <b>one Lowercase characters</b></td>
+        </tr>
+        <tr>
+            <td>Password should contain at least <b>one Number</b></td>
+        </tr>
+        <tr>
+            <td>Password should contain at least <b>one Special symbols characters</b></td>
+        </tr>
+    </table><br>
+    <footer>
+        <b>Shortcuts:</b> <br>
+        <i>Press <b>A</b> to read password rules and <b>Z</b> to reject</i><br>
+        <i>Press <b>Q</b> to generate Strong password and <b>X</b> to reject</i>
+    </footer>
 </body>
 <script src="popup.js"></script>
 </html>

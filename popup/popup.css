@@ -1,15 +1,16 @@
+body{
+    background-color: yellow;
+    color:black;
+    width: 480px;
+}
+
+h2{
+    text-align: center;
+}
+
 table{
     font-size: 18px;
-    table-layout: fixed;
-    margin-left: 50px;
-}
-
-td {
-    margin-left:50px;
-}
-
-tr{
-    margin-bottom: 20px;
+    width: 480px;
 }
 
 #progress-meter{
@@ -23,3 +24,8 @@ tr{
     background-color:red;
 }
 
+#rules-for-password{
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 14px;
+}

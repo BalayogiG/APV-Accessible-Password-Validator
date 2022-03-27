@@ -1,4 +1,4 @@
-console.log("APV Background running");
+console.log("Accessible Password Validaor Background running");
 
 chrome.runtime.onMessage.addListener(receiver);
 
